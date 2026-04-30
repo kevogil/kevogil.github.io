@@ -1,27 +1,11 @@
 <!DOCTYPE html>
-
-<html lang="en-US" class="fontawesome-i2svg-active fontawesome-i2svg-complete"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kevin Gil's Portfolio</title>
-  <meta name="description" content="This is my custom portfolio.">
-  
-  <!-- Bootstrap Grid CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap-grid.min.css">
-  <!-- AOS CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="/static/css/main.css">
-
-  <script src="./static/js/main.js"></script>
-
-
-  <!-- Favicon -->
-  <link rel="icon" href="https://lh3.googleusercontent.com/proxy/_zbyiRrVFch2NIYMZ1GKK7NcQFOzKtpuudWfkcTtwklmE78dBcN2CMmW1XUCfpnaF1BPs6FW8vogssChPkgz7yuZGWaLHMmqNnRM7mHtNwNnjURKb9MZK8W9NKbupyNmNcRwUyoK">
-
+  <title>Kevin Gil — Financial Analyst & Data Geek</title>
+  <meta name="description" content="Kevin Gil's portfolio — Financial Analyst, data automation specialist, and builder of things.">
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -29,331 +13,1551 @@
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-MFZ788R');</script>
-  <!-- End Google Tag Manager -->
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── TOKENS ──────────────────────────────────────────── */
+    :root {
+      --navy:       #00213D;
+      --navy-mid:   #003560;
+      --accent:     #0070C9;
+      --accent-lt:  #4FACF7;
+      --off-white:  #F4F7FA;
+      --light-gray: #E8EEF4;
+      --mid-gray:   #8A9BB0;
+      --dark-text:  #0D1B2A;
+      --body-text:  #2E4057;
+      --white:      #FFFFFF;
+
+      --radius-sm:  8px;
+      --radius-md:  14px;
+      --radius-lg:  24px;
+
+      --shadow-card: 0 2px 20px rgba(0,33,61,0.08);
+      --shadow-hover: 0 8px 40px rgba(0,33,61,0.16);
+
+      --nav-height: 68px;
+      --section-pad: 100px;
+
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ─── RESET ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--body-text);
+      background: var(--white);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    /* ─── NAV ─────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+      transition: background 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+    }
+    .nav.scrolled {
+      background: rgba(0,33,61,0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.07);
+    }
+    .nav__logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-right: auto;
+    }
+    .nav__logo span { color: var(--accent-lt); }
+    .nav__links {
+      display: flex;
+      gap: 2.2rem;
+      align-items: center;
+    }
+    .nav__links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav__links a:hover { color: var(--white); }
+    .nav__cta {
+      margin-left: 1.5rem;
+      padding: 0.5rem 1.2rem;
+      background: var(--accent);
+      color: var(--white) !important;
+      border-radius: var(--radius-sm);
+      font-weight: 600 !important;
+      letter-spacing: 0 !important;
+      text-transform: none !important;
+      font-size: 0.88rem !important;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav__cta:hover { background: var(--accent-lt) !important; transform: translateY(-1px); }
+
+    /* ─── HERO ────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      padding: var(--nav-height) 5% 0;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Background grid decoration */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,112,201,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,112,201,0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    }
+    /* Glowing orb */
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,112,201,0.25) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      pointer-events: none;
+    }
+    .hero__inner {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+    }
+    .hero__label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-lt);
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease-out) 0.2s forwards;
+    }
+    .hero__label::before {
+      content: '';
+      width: 28px; height: 2px;
+      background: var(--accent-lt);
+    }
+    .hero__headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 0.35s forwards;
+    }
+    .hero__headline em {
+      font-style: normal;
+      color: var(--accent-lt);
+    }
+    .hero__typewriter-line {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: -0.02em;
+      margin-bottom: 2.2rem;
+      min-height: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 0.5s forwards;
+    }
+    .hero__typewriter-line #typewriter {
+      color: var(--white);
+      border-right: 3px solid var(--accent-lt);
+      padding-right: 4px;
+      animation: blink 0.75s step-end infinite;
+    }
+    .hero__body {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.6);
+      max-width: 560px;
+      margin-bottom: 2.8rem;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 0.65s forwards;
+    }
+    .hero__actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 0.8s forwards;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.8rem;
+      background: var(--accent);
+      color: var(--white);
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      background: #0085F0;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,112,201,0.4);
+    }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.8rem;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.85);
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .btn-ghost:hover {
+      border-color: var(--white);
+      color: var(--white);
+      background: rgba(255,255,255,0.06);
+    }
+
+    /* Scroll indicator */
+    .hero__scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 5%;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 1.1s forwards;
+    }
+    .hero__scroll-line {
+      width: 36px; height: 1px;
+      background: rgba(255,255,255,0.25);
+    }
+
+    /* ─── SECTIONS SHARED ──────────────────────────────────── */
+    .section {
+      padding: var(--section-pad) 5%;
+    }
+    .section--alt {
+      background: var(--off-white);
+    }
+    .section--dark {
+      background: var(--navy);
+    }
+    .section__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+    .section__eyebrow--light { color: var(--accent-lt); }
+    .section__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--dark-text);
+      margin-bottom: 1rem;
+    }
+    .section__title--light { color: var(--white); }
+    .section__subtitle {
+      font-size: 1.05rem;
+      color: var(--mid-gray);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+    .section__subtitle--light { color: rgba(255,255,255,0.6); }
+    .section__header { margin-bottom: 4rem; }
+
+    /* ─── ABOUT ──────────────────────────────────────────── */
+    .about__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      max-width: 680px;
+    }
+    .about__text p {
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--body-text);
+    }
+    .about__stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .stat-card {
+      padding: 1.5rem;
+      background: var(--off-white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--light-gray);
+    }
+    .stat-card__num {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-card__num span { color: var(--accent); }
+    .stat-card__label {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--mid-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .about__visual {
+      position: relative;
+    }
+    .about__card-stack {
+      position: relative;
+      height: 380px;
+    }
+    .about__bg-card {
+      position: absolute;
+      border-radius: var(--radius-lg);
+      background: var(--light-gray);
+    }
+    .about__bg-card:nth-child(1) {
+      inset: 20px 0 0 20px;
+      background: rgba(0,112,201,0.08);
+    }
+    .about__bg-card:nth-child(2) {
+      inset: 10px 10px 10px 10px;
+      background: rgba(0,112,201,0.12);
+    }
+    .about__main-card {
+      position: absolute;
+      inset: 0 20px 20px 0;
+      border-radius: var(--radius-lg);
+      background: var(--navy);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .about__main-card-top {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent-lt);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .about__main-card-headline {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .about__tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tool-tag {
+      padding: 0.3rem 0.8rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 100px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 500;
+    }
+
+    /* ─── EDUCATION ─────────────────────────────────────── */
+    .edu__timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 900px;
+    }
+    .edu__timeline::before {
+      display: none;
+    }
+    .edu-card {
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      box-shadow: var(--shadow-card);
+      transition: box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+    .edu-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--accent);
+    }
+    .edu-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+    }
+    .edu-card__year {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+    .edu-card__type {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--mid-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 0.8rem;
+    }
+    .edu-card__degree {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark-text);
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+    .edu-card__school {
+      font-size: 0.9rem;
+      color: var(--mid-gray);
+      margin-bottom: 1rem;
+    }
+    .edu-card__desc {
+      font-size: 0.88rem;
+      color: var(--body-text);
+      line-height: 1.65;
+    }
+
+    /* ─── SKILLS ─────────────────────────────────────────── */
+    .skills__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1050px;
+    }
+    .skill-group {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-md);
+      padding: 1.8rem;
+      transition: background 0.25s, border-color 0.25s, transform 0.25s;
+    }
+    .skill-group:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(0,112,201,0.4);
+      transform: translateY(-3px);
+    }
+    .skill-group__icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: rgba(0,112,201,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    .skill-group__title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .skill-pill {
+      padding: 0.28rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.75);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: background 0.2s, color 0.2s;
+    }
+    .skill-pill:hover {
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+    }
+
+    /* ─── PROJECTS ───────────────────────────────────────── */
+    .projects__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.8rem;
+      max-width: 1100px;
+    }
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: box-shadow 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-6px);
+    }
+    .project-card__media {
+      height: 200px;
+      background: var(--navy-mid);
+      overflow: hidden;
+      position: relative;
+    }
+    .project-card__media img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s var(--ease-out);
+    }
+    .project-card:hover .project-card__media img { transform: scale(1.04); }
+    .project-card__media-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    }
+    .project-card__body {
+      padding: 1.6rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card__tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .project-card__title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark-text);
+      line-height: 1.3;
+      margin-bottom: 0.8rem;
+    }
+    .project-card__desc {
+      font-size: 0.9rem;
+      color: var(--body-text);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1.2rem;
+    }
+    .project-card__tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .project-tool {
+      padding: 0.22rem 0.65rem;
+      border-radius: 100px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      background: var(--off-white);
+      color: var(--navy-mid);
+      border: 1px solid var(--light-gray);
+    }
+
+    /* ─── CONTACT ────────────────────────────────────────── */
+    .contact__inner {
+      max-width: 600px;
+      text-align: center;
+      margin: 0 auto;
+    }
+    .contact__email {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent-lt);
+      margin: 1.5rem 0 2.5rem;
+      transition: color 0.2s;
+    }
+    .contact__email:hover { color: var(--white); }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.7rem 1.3rem;
+      border: 1.5px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.2s;
+    }
+    .social-link:hover {
+      border-color: var(--accent-lt);
+      color: var(--white);
+      background: rgba(79,172,247,0.1);
+      transform: translateY(-2px);
+    }
+    .social-link svg { width: 18px; height: 18px; fill: currentColor; }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    .footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 1.8rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer__copy {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.35);
+    }
+    .footer__name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ─── ANIMATIONS ─────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes blink {
+      0%, 100% { border-color: var(--accent-lt); }
+      50%       { border-color: transparent; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 900px) {
+      :root { --section-pad: 70px; }
+      .nav__links { display: none; }
+      .edu__timeline { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      :root { --section-pad: 55px; }
+      .about__stats { grid-template-columns: 1fr 1fr; }
+      .projects__grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
-
-<body id="top" data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
-  
-  <!-- Google Tag Manager (noscript) -->
+<body>
+  <!-- GTM noscript -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFZ788R"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
-  <!-- Banner -->
-  <div class="hero-image">
-    <div class="container">
-      <div class="content-center">
-        <div class="static-slider3">
-          <div class="row justify-content-center">
-            <div class="col justify-content-center">
-              <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css"/>
-              <h1>Hi there, I'm <b>Kevin</b>.</h1>
-              <br><br>
-              <h1 class="title">I am a<span class="typewrite" data-period="2000" data-type='[ "  data geek.", "n automation nerd." ]'></span></h1>
-            </div>
-          </div>
-        </div>
+  <!-- ── NAV ───────────────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">Kevin <span>Gil</span></div>
+    <div class="nav__links">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact" class="nav__cta">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ──────────────────────────────────────────────── -->
+  <section class="hero" id="top">
+    <div class="hero__inner">
+      <div class="hero__label">Portfolio</div>
+      <h1 class="hero__headline">Hi, I'm <em>Kevin</em>.</h1>
+      <div class="hero__typewriter-line">
+        I am a<span id="typewriter"></span>
+      </div>
+      <p class="hero__body">
+        Financial Analyst with six years of experience helping organizations 
+        solve problems and put their data to work — through automation, modeling, 
+        and a love for tinkering with new tools.
+      </p>
+      <div class="hero__actions">
+        <a href="#projects" class="btn-primary">
+          View Projects
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
       </div>
     </div>
-  </div>
-  <!-- End Banner -->
+    <div class="hero__scroll">
+      <div class="hero__scroll-line"></div>
+      Scroll
+    </div>
+  </section>
 
-
-  <!-- About Me -->
-  <div class="about-me me-tan-bg" id="about-me">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css"/>
-    <h2>ABOUT ME</h2>
-    <p class="subtitle">I am a Financial Analyst with six years of experience helping organizations solve problems and put their data to use. I enjoy mining and modeling data for insights with VBA, PowerQuery M, and Python.</p>
-    <p class="subtitle">I have extensive experience in building financial models and automating processes for organizations across media, retail, and licensing industries. Driven and always curious, I love learning and tinkering around with new libraries and toolsets.</p>
-    <br><br><br>
-  </div>
-  <!-- End About Me -->
-
-
-  <!-- Education -->
-  <div class="education me-lightgrey" id="education">
-    <div class="container cc-education">
-      <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css"/>
-      <div class="h4 text-center mb-4 title">
-        <h2>EDUCATION</h2>
-      </div>
-
-      <!-- Education 1 -->
-      <div class="card">
-        <div class="row">
-          <div class="col-md-3 me-turquoise aos-init aos-animate" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-            <div class="card-body cc-education-header">
-              <p>2021</p>
-              <div class="h5">Certification</div>
-            </div>
+  <!-- ── ABOUT ─────────────────────────────────────────────── -->
+  <section class="section" id="about">
+    <div class="about__grid">
+      <div class="about__text reveal">
+        <div class="section__eyebrow">About Me</div>
+        <h2 class="section__title">Turning messy data<br>into clear answers.</h2>
+        <p>
+          I'm a Financial Analyst with a deep passion for data — mining it, modeling it, 
+          and automating everything in between. My work spans media, retail, and licensing 
+          industries, where I've built financial models and streamlined processes that 
+          actually get used.
+        </p>
+        <p>
+          When I'm not knee-deep in spreadsheets, I'm learning new libraries, automating 
+          workflows with Python and VBA, or exploring whatever technical rabbit hole caught 
+          my attention that week.
+        </p>
+        <div class="about__stats">
+          <div class="stat-card">
+            <div class="stat-card__num">6<span>+</span></div>
+            <div class="stat-card__label">Years Experience</div>
           </div>
-          <div class="col-md-9 aos-init aos-animate" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-            <div class="card-body">
-              <div class="h5">Data Analytics Boot Camp</div>
-              <h6 style="color: darkgrey;">USC Viterbi School of Engineering | Los Angeles, CA</h6>
-              <p> 26-week rigorous program focused on technical skills to solve data problems through Excel, Python, R, JavaScript, SQL Databases, Tableau, as well as data visualization through HTML and CSS.
-                  Beyond technical skills, the course went further into concepts of Big Data as well as machine learning with neural networks.
-              </p>
-            </div>
+          <div class="stat-card">
+            <div class="stat-card__num">3<span>+</span></div>
+            <div class="stat-card__label">Industries</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__num"><span>#</span>1</div>
+            <div class="stat-card__label">Go-to for Automation</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__num">∞</div>
+            <div class="stat-card__label">Curiosity Level</div>
           </div>
         </div>
       </div>
 
-      <br><br>
 
-      <!-- Education 2 -->
-      <div class="card">
-        <div class="row">
-          <div class="col-md-3 me-turquoise aos-init aos-animate" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-            <div class="card-body cc-education-header">
-              <p>2012</p>
-              <div class="h5">Bachelor's Degree</div>
-            </div>
-          </div>
-          <div class="col-md-9 aos-init aos-animate" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-            <div class="card-body">
-              <br><br>
-              <div class="h5">Bachelor of Business Administration (BBA) - Accounting</div>
-              <h6 style="color: darkgrey;">University of California, Riverside | Riverside, CA</h6>
-            </div>
-          </div>
+    </div>
+  </section>
+
+  <!-- ── EDUCATION ─────────────────────────────────────────── -->
+  <section class="section section--alt" id="education">
+    <div class="section__header reveal">
+      <div class="section__eyebrow">Background</div>
+      <h2 class="section__title">Education</h2>
+      <p class="section__subtitle">The foundations that fuel the work.</p>
+    </div>
+    <div class="edu__timeline">
+
+      <div class="edu-card reveal">
+        <div class="edu-card__year">2021</div>
+        <div class="edu-card__type">Certification</div>
+        <div class="edu-card__degree">Data Analytics Boot Camp</div>
+        <div class="edu-card__school">USC Viterbi School of Engineering — Los Angeles, CA</div>
+        <div class="edu-card__desc">
+          26-week rigorous program covering Excel, Python, R, JavaScript, SQL, Tableau, 
+          HTML/CSS, Big Data concepts, and machine learning with neural networks.
+        </div>
+      </div>
+
+      <div class="edu-card reveal">
+        <div class="edu-card__year">2012</div>
+        <div class="edu-card__type">Bachelor's Degree</div>
+        <div class="edu-card__degree">Bachelor of Business Administration (BBA) — Accounting</div>
+        <div class="edu-card__school">University of California, Riverside — Riverside, CA</div>
+        <div class="edu-card__desc">
+          Business fundamentals with a focus on financial accounting, analysis, and 
+          the quantitative skills that underpin everything I do today.
         </div>
       </div>
 
     </div>
-  </div>
-  <!-- End Education -->
+  </section>
 
-
-  <!-- Skills -->
-  <div class="skills me-accelerate me-lightgrey" id="skills">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css"/>
-    <!-- <div class="compass" id="compass-decorator" style="transform: rotate(0deg);"></div> -->
-
-    <div class="container" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
-      <h2>SKILLS</h2>
-      <div class="row justify-content-center">
-        <figure data-aos="slide-left">
-          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 50 50" style=" fill:#000000;"><path d="M 28.8125 0.03125 L 0.8125 5.34375 C 0.339844 5.433594 0 5.863281 0 6.34375 L 0 43.65625 C 0 44.136719 0.339844 44.566406 0.8125 44.65625 L 28.8125 49.96875 C 28.875 49.980469 28.9375 50 29 50 C 29.230469 50 29.445313 49.929688 29.625 49.78125 C 29.855469 49.589844 30 49.296875 30 49 L 30 1 C 30 0.703125 29.855469 0.410156 29.625 0.21875 C 29.394531 0.0273438 29.105469 -0.0234375 28.8125 0.03125 Z M 32 6 L 32 13 L 34 13 L 34 15 L 32 15 L 32 20 L 34 20 L 34 22 L 32 22 L 32 27 L 34 27 L 34 29 L 32 29 L 32 35 L 34 35 L 34 37 L 32 37 L 32 44 L 47 44 C 48.101563 44 49 43.101563 49 42 L 49 8 C 49 6.898438 48.101563 6 47 6 Z M 36 13 L 44 13 L 44 15 L 36 15 Z M 6.6875 15.6875 L 11.8125 15.6875 L 14.5 21.28125 C 14.710938 21.722656 14.898438 22.265625 15.0625 22.875 L 15.09375 22.875 C 15.199219 22.511719 15.402344 21.941406 15.6875 21.21875 L 18.65625 15.6875 L 23.34375 15.6875 L 17.75 24.9375 L 23.5 34.375 L 18.53125 34.375 L 15.28125 28.28125 C 15.160156 28.054688 15.035156 27.636719 14.90625 27.03125 L 14.875 27.03125 C 14.8125 27.316406 14.664063 27.761719 14.4375 28.34375 L 11.1875 34.375 L 6.1875 34.375 L 12.15625 25.03125 Z M 36 20 L 44 20 L 44 22 L 36 22 Z M 36 27 L 44 27 L 44 29 L 36 29 Z M 36 35 L 44 35 L 44 37 L 36 37 Z"></path></svg>
-          <figcaption>VBA</figcaption>
-        </figure>
-        <figure data-aos="slide-left">
-          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 50 50" style=" fill:#000000;"><path d="M 8 7 C 4.69 7 2 9.69 2 13 L 2 33 C 2 35.97 4.16 38.440156 7 38.910156 L 7 36.869141 C 5.27 36.429141 4 34.86 4 33 L 4 13 C 4 10.79 5.79 9 8 9 L 41 9 C 43.21 9 45 10.79 45 13 L 45 33 C 45 34.86 43.73 36.429141 42 36.869141 L 42 38.910156 C 44.84 38.440156 47 35.97 47 33 L 47 13 C 47 9.69 44.31 7 41 7 L 8 7 z M 36.5 15 C 35.119 15 34 16.119 34 17.5 L 34 41.5 C 34 42.881 35.119 44 36.5 44 C 37.881 44 39 42.881 39 41.5 L 39 17.5 C 39 16.119 37.881 15 36.5 15 z M 20.5 21 C 19.119 21 18 22.119 18 23.5 L 18 41.5 C 18 42.881 19.119 44 20.5 44 C 21.881 44 23 42.881 23 41.5 L 23 23.5 C 23 22.119 21.881 21 20.5 21 z M 28.5 25 C 27.119 25 26 26.119 26 27.5 L 26 41.5 C 26 42.881 27.119 44 28.5 44 C 29.881 44 31 42.881 31 41.5 L 31 27.5 C 31 26.119 29.881 25 28.5 25 z M 12.5 30 C 11.119 30 10 31.119 10 32.5 L 10 41.5 C 10 42.881 11.119 44 12.5 44 C 13.881 44 15 42.881 15 41.5 L 15 32.5 C 15 31.119 13.881 30 12.5 30 z"></path></svg>
-          <figcaption>PowerQuery M</figcaption>
-        </figure>
-        <figure data-aos="slide-left">
-          <svg class="svg-inline--fa fa-python fa-w-14 fa-5x" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="python" role="img" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"></path></svg>
-          <figcaption>Python</figcaption>
-        </figure>
-        <figure data-aos="zoom-in">
-          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 50 50" style=" fill:#000000;"><path d="M 45.273438 2.324219 C 45.085938 2.117188 44.816406 2 44.535156 2 L 5.464844 2 C 5.183594 2 4.914063 2.117188 4.726563 2.324219 C 4.535156 2.53125 4.441406 2.808594 4.46875 3.089844 L 7.988281 42.515625 C 8.023438 42.929688 8.3125 43.273438 8.710938 43.390625 L 24.722656 47.960938 C 24.808594 47.988281 24.902344 48 24.996094 48 C 25.089844 48 25.179688 47.988281 25.269531 47.960938 L 41.292969 43.390625 C 41.691406 43.273438 41.976563 42.929688 42.015625 42.515625 L 45.53125 3.089844 C 45.558594 2.808594 45.464844 2.53125 45.273438 2.324219 Z M 36.847656 15.917969 L 18.035156 15.917969 L 18.484375 21.007813 L 36.394531 21.007813 L 35.050781 36.050781 L 24.992188 39.089844 L 24.894531 39.058594 L 14.953125 36.046875 L 14.410156 29.917969 L 19.28125 29.917969 L 19.492188 32.296875 L 25.050781 33.460938 L 30.507813 32.296875 L 31.089844 25.859375 L 14.046875 25.859375 L 12.722656 11.054688 L 37.28125 11.054688 Z"></path></svg>
-          <figcaption>HTML</figcaption>
-        </figure>
-        <figure data-aos="slide-right">
-          <svg class="svg-inline--fa fa-js fa-w-14 fa-5x" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="js" role="img" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M0 32v448h448V32H0zm243.8 349.4c0 43.6-25.6 63.5-62.9 63.5-33.7 0-53.2-17.4-63.2-38.5l34.3-20.7c6.6 11.7 12.6 21.6 27.1 21.6 13.8 0 22.6-5.4 22.6-26.5V237.7h42.1v143.7zm99.6 63.5c-39.1 0-64.4-18.6-76.7-43l34.3-19.8c9 14.7 20.8 25.6 41.5 25.6 17.4 0 28.6-8.7 28.6-20.8 0-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5 0-31.6 24.1-55.6 61.6-55.6 26.8 0 46 9.3 59.8 33.7L368 290c-7.2-12.9-15-18-27.1-18-12.3 0-20.1 7.8-20.1 18 0 12.6 7.8 17.7 25.9 25.6l10.5 4.5c35.8 15.3 55.9 31 55.9 66.2 0 37.8-29.8 58.6-69.7 58.6z"></path></svg>
-          <figcaption>JavaScript</figcaption>
-        </figure>
-        <figure data-aos="slide-right">
-          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 50 50" style=" fill:#000000;"><path fill-rule="evenodd" d="M 42 6 L 39 40 L 25 44 L 11 40 L 8 6 Z M 16.800781 28 L 20.800781 28 L 20.898438 30.5 L 25 31.898438 L 29.101563 30.5 L 29.398438 26 L 20.601563 26 L 20.398438 22 L 29.601563 22 L 29.898438 18 L 16.101563 18 L 15.800781 14 L 34.101563 14 L 33.601563 22 L 32.898438 33.5 L 25 36.101563 L 17.101563 33.5 Z"></path></svg>
-          <figcaption>CSS</figcaption>
-        </figure>
-        <figure data-aos="slide-right">
-          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 50 50" style=" fill:#000000;"><path d="M 35.199219 2.101563 C 33.699219 2.101563 32.398438 2.398438 31.199219 2.699219 C 33.300781 3.597656 34.601563 4.699219 35.300781 5.199219 C 36.902344 6.597656 37.800781 8 39.402344 10.300781 C 39.699219 10.800781 40.199219 11.5 40.5 12.597656 C 40.800781 13.597656 40.800781 14.398438 40.800781 15.199219 C 40.800781 16.300781 40.699219 17.199219 40.597656 18.097656 C 40.5 18.800781 40.5 19.101563 40.402344 19.300781 C 40.402344 19.402344 40.402344 19.5 40.300781 19.699219 C 40.300781 20.199219 40.300781 20.402344 40.402344 20.800781 C 40.402344 21.199219 40.5 21.601563 40.5 22.300781 C 40.601563 23.601563 40.601563 24.5 40.402344 25.597656 L 40.402344 26 C 40.199219 26.898438 40 27.800781 39.5 28.597656 C 39.601563 28.800781 39.699219 28.898438 39.800781 29.097656 C 40.300781 28.398438 40.699219 27.699219 41.097656 26.902344 C 42.300781 24.699219 43 22.800781 43.5 21.402344 C 44.398438 18.800781 44.898438 16.898438 45.199219 15.5 C 45.898438 12.5 46 11.101563 45.699219 9.5 C 45.699219 9 45.5 8.097656 45 7.199219 C 43.898438 5.199219 42.199219 4.300781 41 3.699219 C 40.199219 3.300781 38.097656 2.199219 35.199219 2.101563 Z M 13.535156 2.542969 C 12.382813 2.519531 10.976563 2.648438 9.398438 3.398438 C 8.898438 3.601563 7.398438 4.300781 6.199219 5.898438 C 5.398438 6.898438 4.800781 8.398438 4.5 10.097656 C 4.199219 11.597656 4.097656 13.402344 4.699219 16.800781 C 5.097656 19.199219 5.5 20.800781 6.300781 24.097656 C 6.402344 24.5 7 26.300781 8.300781 30.300781 L 8.398438 30.5 C 8.601563 31.199219 9.199219 32.699219 10.5 34.199219 C 11.398438 35.199219 12.199219 35.800781 12.902344 35.800781 L 13.097656 35.800781 C 14.398438 35.800781 15.300781 34.800781 16.097656 34 C 16.097656 33.898438 18 31.601563 18.699219 30.800781 C 18.597656 30.699219 18.402344 30.699219 18.300781 30.597656 C 17.101563 29.898438 16.199219 28.800781 15.5 27.597656 C 14.300781 25.398438 14.398438 23.199219 14.597656 22.097656 L 14.699219 20.402344 C 14.300781 17.699219 14.402344 15.101563 14.902344 12.5 C 15.300781 10.300781 15.800781 8.101563 17.597656 5.800781 C 18.199219 5 18.898438 4.300781 19.597656 3.800781 C 18 3.101563 16.300781 2.699219 14.597656 2.601563 C 14.273438 2.574219 13.917969 2.550781 13.535156 2.542969 Z M 26.097656 3.398438 C 25.597656 3.398438 25.097656 3.398438 24.597656 3.5 C 22.597656 3.898438 20.699219 5 19.199219 6.898438 C 17.699219 8.800781 17.300781 10.597656 16.902344 12.699219 C 16.699219 13.5 16.699219 14.199219 16.597656 15 C 17.199219 14.5 18 13.898438 19.199219 13.597656 C 19.898438 13.398438 21.699219 12.800781 23.199219 13.699219 C 23.699219 14 24.398438 14.601563 25.097656 16.300781 C 26.597656 20.5 25.101563 24.800781 24.902344 25.199219 C 24.800781 25.597656 24.601563 25.898438 24.5 26.097656 C 24.300781 26.597656 24.101563 27 23.902344 27.800781 C 23.800781 28.5 23.699219 29.101563 23.699219 29.800781 C 24 29.800781 24.300781 29.898438 24.597656 30.097656 C 25.097656 30.597656 25.199219 31.300781 25.300781 31.597656 C 25.5 33.199219 25.5 35.199219 25.5 37.199219 C 25.5 38.800781 25.5 40.300781 25.597656 41.300781 C 25.800781 43.601563 26.5 45.199219 27.5 46 C 28.199219 46.601563 29.097656 46.597656 29.597656 46.699219 L 29.800781 46.699219 C 31.300781 46.699219 33.699219 45.699219 34.597656 44.300781 C 35.097656 43.5 35.300781 42.800781 35.5 41.800781 C 35.601563 41.199219 35.597656 40.902344 35.699219 40.300781 C 35.699219 40 35.800781 39.5 35.800781 38.902344 C 35.800781 38.402344 35.898438 37.800781 36 37.097656 C 36.101563 35.398438 36.398438 33.402344 36.5 32.300781 C 36.601563 31 37.199219 29.898438 37.699219 29.199219 C 37 29.097656 36.300781 28.5 35.902344 27.5 C 35.300781 26.398438 35.199219 26.097656 35.097656 25.597656 C 35 25.199219 34.800781 24.699219 34.097656 23.199219 C 32.597656 19.800781 32.402344 18.800781 32.402344 18 C 32.300781 16.898438 32.199219 15.402344 33.402344 14.402344 C 35.199219 12.800781 37.5 12.902344 38.699219 13.300781 L 38.699219 13.097656 C 38.5 12.300781 38.101563 11.699219 37.800781 11.300781 C 36.300781 9 35.5 7.800781 34.097656 6.601563 C 33.5 6.101563 32 4.898438 29.800781 4.101563 C 28.800781 3.800781 27.597656 3.398438 26.097656 3.398438 Z M 37.152344 15.125 C 36.425781 15.074219 35.5 15.199219 34.699219 15.902344 C 34.300781 16.300781 34.300781 17.101563 34.402344 17.800781 C 34.402344 18.300781 34.5 19 36 22.402344 C 36.699219 24 36.898438 24.5 37 24.902344 C 37.101563 25.300781 37.199219 25.5 37.800781 26.597656 C 37.902344 26.800781 38 27 38.199219 27.199219 C 38.398438 26.898438 38.5 26.398438 38.597656 25.597656 L 38.699219 25.300781 C 38.898438 24.402344 38.800781 23.699219 38.800781 22.5 C 38.800781 21.898438 38.699219 21.5 38.699219 21.199219 C 38.597656 20.699219 38.597656 20.300781 38.597656 19.699219 C 38.398438 19.398438 38.398438 19.300781 38.5 19.097656 C 38.5 18.898438 38.597656 18.601563 38.699219 18 C 38.800781 17.199219 38.902344 16.5 38.902344 15.699219 C 38.699219 15.597656 38.601563 15.5 38.402344 15.402344 C 38.402344 15.402344 37.875 15.175781 37.152344 15.125 Z M 21.515625 15.519531 C 20.878906 15.445313 20.148438 15.652344 19.699219 15.800781 C 18.597656 16.101563 17.902344 16.800781 17.402344 17.199219 C 17.101563 17.5 16.800781 17.800781 16.5 18.199219 C 16.5 18.898438 16.597656 19.601563 16.699219 20.300781 L 16.699219 20.402344 L 16.5 22.402344 C 16.300781 23.300781 16.199219 25 17.199219 26.699219 C 17.699219 27.699219 18.402344 28.5 19.300781 29 C 19.902344 29.398438 20.699219 29.699219 21.597656 29.902344 C 21.597656 29.199219 21.699219 28.398438 21.800781 27.699219 C 22 26.699219 22.199219 26.199219 22.5 25.597656 C 22.601563 25.300781 22.699219 25.101563 22.902344 24.800781 C 23 24.5 24.398438 20.699219 23.097656 17.199219 C 22.800781 16.398438 22.5 15.898438 22.097656 15.699219 C 21.925781 15.597656 21.722656 15.542969 21.515625 15.519531 Z M 36.1875 16.089844 C 36.449219 16.074219 36.699219 16.097656 36.800781 16.199219 C 37.101563 16.398438 36.699219 16.898438 36.597656 17 C 36.5 17.101563 36.300781 17.300781 36 17.402344 C 35.601563 17.5 35.300781 17.199219 35.199219 17.199219 C 35.097656 17.097656 34.800781 16.800781 34.902344 16.5 C 35 16.300781 35.101563 16.300781 35.5 16.199219 C 35.648438 16.148438 35.925781 16.101563 36.1875 16.089844 Z M 21.15625 16.917969 C 21.492188 16.894531 21.773438 17.023438 22 17.097656 C 22.300781 17.199219 22.597656 17.300781 22.597656 17.5 C 22.699219 17.800781 22.402344 18 22.300781 18.097656 C 22 18.398438 21.5 18.402344 21.5 18.402344 C 21 18.402344 20.699219 18.101563 20.5 17.800781 C 20.398438 17.699219 20.300781 17.5 20.402344 17.300781 C 20.5 17.101563 20.699219 17 20.800781 17 C 20.925781 16.949219 21.042969 16.925781 21.15625 16.917969 Z M 39.5 30 C 39 30.699219 38.300781 31.601563 38.199219 32.800781 C 38.199219 33 38.199219 33.101563 38.097656 33.300781 C 38.898438 33.5 39.601563 33.5 40.300781 33.402344 C 41.902344 33.199219 43 32.398438 43.199219 32.199219 C 43.898438 31.699219 44.800781 30.699219 44.597656 30.300781 C 44.5 30.101563 44.199219 30.199219 42.597656 30.300781 C 42.199219 30.300781 41 30.601563 40.199219 30.402344 L 40 30.402344 C 39.800781 30.300781 39.601563 30.199219 39.5 30 Z M 22.097656 32 C 21.898438 32.300781 21.601563 32.5 21.402344 32.699219 C 20.601563 33.199219 19.597656 33.601563 18.597656 33.800781 C 17.699219 34.101563 17.199219 34.101563 17.199219 34.402344 C 17.097656 34.800781 18.097656 35.300781 18.597656 35.5 C 20.300781 36.199219 22 35.800781 22.300781 35.699219 C 22.5 35.597656 23 35.398438 23.5 35.097656 C 23.5 34 23.402344 33 23.300781 32.199219 L 23.300781 32.097656 L 23.199219 32.097656 C 22.898438 32.097656 22.5 32.101563 22.097656 32 Z"></path></svg>
-          <figcaption>PostgreSQL</figcaption>
-        </figure>
-        </div>
+  <!-- ── SKILLS ─────────────────────────────────────────────── -->
+  <section class="section section--dark" id="skills">
+    <div class="section__header reveal">
+      <div class="section__eyebrow section__eyebrow--light">Capabilities</div>
+      <h2 class="section__title section__title--light">Skills</h2>
+      <p class="section__subtitle section__subtitle--light">Tools, languages, and domains I work in.</p>
     </div>
-  </div>
-  <!-- End Skills -->
+    <div class="skills__grid">
 
-
-  <!-- Projects -->
-  <div class="projects" id="projects">
-    <div class="container">
-      <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css"/>
-
-      <div class="h4 text-center mb-4 title">
-        <h2>PROJECTS</h2>
-      </div>
-
-      <!-- Project 1 -->
-      <div class="card">
-        <div class="row">
-          <div class="col-md-7 bg-primary aos-init aos-animate" data-aos="zoom-out-right" data-aos-offset="50" data-aos-duration="500" style="background-image: url(&#39;static/images/Projects/forecast_model.gif&#39;); background-size: cover; background-repeat: no-repeat center center-fixed; overflow: visible">
-            <div class="card-body"></div>
-          </div>
-
-          <div class="col-md-5 aos-init aos-animate" data-aos="zoom-out-left" data-aos-offset="50" data-aos-duration="500">
-            <div class="card-body">
-
-              <div class="h5">
-                <h4 style="font-weight: 600">Consolidate multiple files into one</h4>
-              </div>
-
-              <div class="card-text">
-                <p> 
-                  Dynamically import all division-level financial reports found in a specified folder into one master file.
-                  The individual files are imported into their respective worksheets.
-                  All imported sheets are then rolled-up into a company-level view, consolidating all divisions into one single tab.
-                </p><br>
-                <p><strong> Tools used</strong> &nbsp; : &nbsp; Excel, VBA</p>
-              </div>
-
-            </div>
-          </div>
-
+      <div class="skill-group reveal">
+        <div class="skill-group__icon">🐍</div>
+        <div class="skill-group__title">Languages & Scripting</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">VBA</span>
+          <span class="skill-pill">PowerQuery M</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">R</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">HTML / CSS</span>
         </div>
       </div>
 
-      <br><br>
-
-      <!-- Project 2 -->
-      <div class="card">
-        <div class="row">
-          <div class="col-md-7 bg-primary aos-init aos-animate" data-aos="zoom-out-right" data-aos-offset="50" data-aos-duration="500" style="background-image: url(&#39;static/images/Projects/email_model.gif&#39;); background-size: cover; background-repeat: no-repeat center center-fixed; overflow: visible">
-            <div class="card-body"></div>
-          </div>
-
-          <div class="col-md-5 aos-init aos-animate" data-aos="zoom-out-left" data-aos-offset="50" data-aos-duration="500">
-            <div class="card-body">
-
-              <div class="h5">
-                <h4 style="font-weight: 600">Send Outlook emails from Excel with parameters and attachments</h4>
-              </div>
-
-              <div class="card-text">
-                <p>
-                  We often have recurring emails that we send out on a daily or weekly basis. Make your life easier by sending them straight through Excel.
-                  Customize your email parameters, including your target email address, subject, body, signature, and attachments as needed.
-                  Insert as many rows as needed, and run the program to send out all your emails via Outlook.
-                </p><br>
-                <p><strong> Tools used</strong> &nbsp; : &nbsp; Excel, Outlook, VBA</p>
-              </div>
-
-            </div>
-          </div>
-
+      <div class="skill-group reveal">
+        <div class="skill-group__icon">📊</div>
+        <div class="skill-group__title">Data & Analytics</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Tableau</span>
+          <span class="skill-pill">Power BI</span>
+          <span class="skill-pill">Excel (Advanced)</span>
+          <span class="skill-pill">Financial Modeling</span>
+          <span class="skill-pill">Pandas</span>
+          <span class="skill-pill">NumPy</span>
         </div>
       </div>
 
-      <br><br>
-
-      <!-- Project 3 -->
-      <div class="card">
-        <div class="row">
-          <div class="col-md-7 bg-primary aos-init aos-animate" data-aos="zoom-out-right" data-aos-offset="50" data-aos-duration="500" style="background-image: url(&#39;static/images/Projects/database_model.gif&#39;); background-size: cover; background-repeat: no-repeat center center-fixed; overflow: visible">
-            <div class="card-body"></div>
-          </div>
-
-          <div class="col-md-5 aos-init aos-animate" data-aos="zoom-out-left" data-aos-offset="50" data-aos-duration="500">
-            <div class="card-body">
-
-              <div class="h5">
-                <h4 style="font-weight: 600">Export data to Access or vice versa</h4>
-              </div>
-
-              <div class="card-text">
-                <p> 
-                  Did you know that Excel has a limit of 1,048,576 rows? Seamlessly export your Excel data to an Access database, a much safer and reliable way of storing large amounts of valuable data.
-                  Need to access your data stored in Access? Just as easily Power Query your data back to Excel without dealing with sluggish Excel files since this data is stored as a connection, not within the Excel file itself.
-                </p><br>
-                <p><strong> Tools used</strong> &nbsp; : &nbsp; Excel, Access, VBA, PowerQuery M</p>
-              </div>
-
-            </div>
-          </div>
-
+      <div class="skill-group reveal">
+        <div class="skill-group__icon">⚙️</div>
+        <div class="skill-group__title">Automation & Databases</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Process Automation</span>
+          <span class="skill-pill">Access / SQL DBs</span>
+          <span class="skill-pill">Outlook via VBA</span>
+          <span class="skill-pill">ETL Pipelines</span>
+          <span class="skill-pill">Data Cleaning</span>
         </div>
       </div>
 
-      <br><br>
+      <div class="skill-group reveal">
+        <div class="skill-group__icon">💼</div>
+        <div class="skill-group__title">Domain Knowledge</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Financial Analysis</span>
+          <span class="skill-pill">Budgeting & Forecasting</span>
+          <span class="skill-pill">Media Industry</span>
+          <span class="skill-pill">Retail & Licensing</span>
+          <span class="skill-pill">Neural Networks</span>
+        </div>
+      </div>
 
     </div>
-  </div>
-  <!-- End Projects -->
+  </section>
 
+  <!-- ── BEFORE / AFTER ─────────────────────────────────────── -->
+  <section class="section section--alt" id="transformation">
+    <div class="section__header reveal">
+      <div class="section__eyebrow">Data Transformation</div>
+      <h2 class="section__title">Ugly data, made beautiful.</h2>
+      <p class="section__subtitle">Drag the slider to see how raw, hard-to-read data tables can be turned into something clean, intuitive, and actionable.</p>
+    </div>
 
-  <!-- Contact -->
-  <div class="contact module me-turquoise" id="contact">
+    <div class="comparison reveal">
+      <div class="comparison__container" id="comparisonContainer">
 
-    <!-- Testimonials -->
-    <section class="testim" id="testim">
-      <div class="wrap">
-
-        <span id="right-arrow" class="arrow right fa fa-chevron-right"></span>
-        <span id="left-arrow" class="arrow left fa fa-chevron-left"></span>
-
-        <ul class="dots" id="testim-dots">
-          <li class="dot active"></li>
-          <li class="dot"></li>
-          <li class="dot"></li>
-          <li class="dot"></li>
-          <li class="dot"></li>
-        </ul>
-
-        <div class="cont" id="testim-content">
-
-          <div class="active">
-            <div class="img"><img src="p1.jpg"></div>
-            <h2>Lorem N. Ipsum</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates quasi aliquid vel voluptatum
-                deleniti! Corrupti velit, porro facere facilis laboriosam accusantium, eos beatae maiores.</p>
-          </div>
-              
-          <div>
-            <div class="img"><img src="p2.jpg"></div>
-            <h2>Lorem L. Ipsum</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates quasi aliquid vel voluptatum
-                deleniti! Corrupti velit, porro facere facilis laboriosam accusantium, eos beatae maiores.</p>
-          </div>
-              
-        </div>
-
-      </div>
-    </section>
-    <!-- End Testimonials -->
-
-    <p class="name-and-mail me-white-text me-text-center"><span><b>Kevin</b> Gil</span><br>kevingil23@gmail.com</p>
-    <div class="social-icons me-text-center">
-      <a href="https://github.com/kevogil" target="_blank" class="me-transparent-btn github"><svg version="1.1" id="github" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-        <path id="github-icon" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-      </a>
-      <a href="https://linkedin.com/in/kevingil23" target="_blank" class="me-transparent-btn linkedin"><svg version="1.1" id="linkedin" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-        <path id="linkedin-icon" d="M150.65,100.682c0,27.992-22.508,50.683-50.273,50.683s-50.273-22.691-50.273-50.683
-        C50.104,72.691,72.612,50,100.377,50C128.143,50,150.65,72.691,150.65,100.682z M143.294,187.333H58.277V462h85.017V187.333z
-        M279.195,187.333h-81.542V462h81.542c0,0,0-101.877,0-144.182c0-38.623,17.779-61.614,51.807-61.614
-        c31.268,0,46.289,22.071,46.289,61.614c0,39.546,0,144.182,0,144.182h84.605c0,0,0-100.344,0-173.915
-        c0-73.571-41.689-109.131-99.935-109.131s-82.769,45.369-82.769,45.369v-36.99H279.195z"></path></svg>
-      </a>
-      <a href="https://www.upwork.com/freelancers/~01429414db0d243878" target="_blank" class="me-transparent-btn upwork">
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-          <path d="M 1 9 C 0.448 9 0 9.448 0 10 L 0 24.115234 C 0 30.276234 4.6829844 35.631469 10.833984 35.980469 C 16.730984 36.314469 21.747875 32.176391 22.796875 26.650391 C 23.366875 27.420391 23.94625 28.135969 24.53125 28.792969 L 21.001953 43.771484 C 20.932953 44.069484 21.002406 44.380094 21.191406 44.621094 C 21.382406 44.859094 21.670563 45 21.976562 45 L 27.095703 45 C 27.559703 45 27.959406 44.687328 28.066406 44.236328 C 28.687406 41.615328 29.660969 37.508156 30.542969 33.785156 L 31.453125 34.3125 C 33.618125 35.4335 35.815 36 38 36 C 45.192 36 50.926 29.641 49.875 22.25 C 49.179 17.354 45.414078 13.318344 40.580078 12.277344 C 34.951078 11.064344 29.525359 13.949141 27.193359 18.744141 C 27.193359 18.744141 26.934562 19.318578 26.726562 19.892578 C 25.076563 17.046578 24.107609 14.094078 23.599609 11.955078 C 23.414609 11.175078 23.137469 9.762875 23.105469 9.671875 C 22.966469 9.268875 22.589109 9 22.162109 9 L 17 9 C 16.448 9 16 9.448 16 10 L 16 24.300781 C 16 26.649781 14.287219 28.750516 11.949219 28.978516 C 9.2672187 29.240516 7 27.13 7 24.5 L 7 10 C 7 9.448 6.552 9 6 9 L 1 9 z M 38 19 C 40.757 19 43 21.243 43 24 C 43 26.757 40.757 29 38 29 C 35.775 29 33.713531 27.658281 32.269531 26.488281 C 32.796531 24.263281 33.15025 22.773047 33.15625 22.748047 C 33.72425 20.541047 35.717 19 38 19 z"></path>
+        <!-- BEFORE: messy raw table rendered as SVG -->
+        <svg class="comparison__img comparison__img--before" viewBox="0 0 960 520" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:auto;">
+          <rect width="960" height="520" fill="#f0ece8"/>
+          <!-- title bar -->
+          <rect x="0" y="0" width="960" height="36" fill="#d4cfc9"/>
+          <text x="14" y="23" font-family="Courier New, monospace" font-size="13" fill="#555">sales_data_FINAL_v3_USE_THIS_ONE.xlsx</text>
+          <circle cx="930" cy="18" r="7" fill="#e57373"/><circle cx="910" cy="18" r="7" fill="#ffb74d"/><circle cx="890" cy="18" r="7" fill="#81c784"/>
+          <!-- header row -->
+          <rect x="0" y="36" width="960" height="34" fill="#c8c1b8"/>
+          <line x1="0" y1="70" x2="960" y2="70" stroke="#a09890" stroke-width="1"/>
+          <!-- col headers, inconsistent widths -->
+          <text x="8"   y="58" font-family="Courier New, monospace" font-size="11" fill="#333" font-weight="bold">ID</text>
+          <text x="48"  y="58" font-family="Courier New, monospace" font-size="11" fill="#333" font-weight="bold">Name</text>
+          <text x="180" y="58" font-family="Courier New, monospace" font-size="11" fill="#333" font-weight="bold">REGION</text>
+          <text x="290" y="58" font-family="Courier New, monospace" font-size="11" fill="#333" font-weight="bold">q1 sales</text>
+          <text x="400" y="58" font-family="Courier New, monospace" font-size="11" fill="#333" font-weight="bold">Q2Sales</text>
+          <text x="500" y="58" font-family="Courier New, monospace" font-size="11" fill="#333" font-weight="bold">q3_sales</text>
+          <text x="600" y="58" font-family="Courier New, monospace" font-size="11" fill="#333" font-weight="bold">Q4 Sales $</text>
+          <text x="710" y="58" font-family="Courier New, monospace" font-size="11" fill="#333" font-weight="bold">Total</text>
+          <text x="790" y="58" font-family="Courier New, monospace" font-size="11" fill="#333" font-weight="bold">Status</text>
+          <text x="880" y="58" font-family="Courier New, monospace" font-size="11" fill="#333" font-weight="bold">Notes</text>
+          <!-- vertical col dividers -->
+          <line x1="42"  y1="36" x2="42"  y2="520" stroke="#b0a9a0" stroke-width="1"/>
+          <line x1="175" y1="36" x2="175" y2="520" stroke="#b0a9a0" stroke-width="1"/>
+          <line x1="285" y1="36" x2="285" y2="520" stroke="#b0a9a0" stroke-width="1"/>
+          <line x1="395" y1="36" x2="395" y2="520" stroke="#b0a9a0" stroke-width="1"/>
+          <line x1="495" y1="36" x2="495" y2="520" stroke="#b0a9a0" stroke-width="1"/>
+          <line x1="595" y1="36" x2="595" y2="520" stroke="#b0a9a0" stroke-width="1"/>
+          <line x1="700" y1="36" x2="700" y2="520" stroke="#b0a9a0" stroke-width="1"/>
+          <line x1="780" y1="36" x2="780" y2="520" stroke="#b0a9a0" stroke-width="1"/>
+          <line x1="870" y1="36" x2="870" y2="520" stroke="#b0a9a0" stroke-width="1"/>
+          <!-- rows -->
+          <!-- row 1 highlighted yellow (merge accident) -->
+          <rect x="0" y="70" width="960" height="36" fill="#fffde7"/>
+          <text x="8"   y="93" font-family="Courier New, monospace" font-size="11" fill="#333">001</text>
+          <text x="48"  y="93" font-family="Courier New, monospace" font-size="11" fill="#333">johnson, mike</text>
+          <text x="180" y="93" font-family="Courier New, monospace" font-size="11" fill="#333">West</text>
+          <text x="290" y="93" font-family="Courier New, monospace" font-size="11" fill="#e53935">$12,400</text>
+          <text x="400" y="93" font-family="Courier New, monospace" font-size="11" fill="#333">15200</text>
+          <text x="500" y="93" font-family="Courier New, monospace" font-size="11" fill="#333">$14,800.00</text>
+          <text x="600" y="93" font-family="Courier New, monospace" font-size="11" fill="#333">16100</text>
+          <text x="710" y="93" font-family="Courier New, monospace" font-size="11" fill="#e53935">58500</text>
+          <text x="790" y="93" font-family="Courier New, monospace" font-size="11" fill="#333">active</text>
+          <text x="880" y="93" font-family="Courier New, monospace" font-size="11" fill="#777">check q1</text>
+          <line x1="0" y1="106" x2="960" y2="106" stroke="#c8c1b8" stroke-width="1"/>
+          <!-- row 2 -->
+          <rect x="0" y="106" width="960" height="36" fill="#fafaf8"/>
+          <text x="8"   y="129" font-family="Courier New, monospace" font-size="11" fill="#333">2</text>
+          <text x="48"  y="129" font-family="Courier New, monospace" font-size="11" fill="#333">SARAH CHEN</text>
+          <text x="180" y="129" font-family="Courier New, monospace" font-size="11" fill="#333">east</text>
+          <text x="290" y="129" font-family="Courier New, monospace" font-size="11" fill="#333">22100</text>
+          <text x="400" y="129" font-family="Courier New, monospace" font-size="11" fill="#333">$19,500</text>
+          <text x="500" y="129" font-family="Courier New, monospace" font-size="11" fill="#333">21000</text>
+          <text x="600" y="129" font-family="Courier New, monospace" font-size="11" fill="#333">$24,200</text>
+          <text x="710" y="129" font-family="Courier New, monospace" font-size="11" fill="#333">86800</text>
+          <text x="790" y="129" font-family="Courier New, monospace" font-size="11" fill="#333">Active</text>
+          <text x="880" y="129" font-family="Courier New, monospace" font-size="11" fill="#777">-</text>
+          <line x1="0" y1="142" x2="960" y2="142" stroke="#c8c1b8" stroke-width="1"/>
+          <!-- row 3 blank/empty -->
+          <rect x="0" y="142" width="960" height="36" fill="#fff9f9"/>
+          <text x="8"   y="165" font-family="Courier New, monospace" font-size="11" fill="#bbb">003</text>
+          <text x="48"  y="165" font-family="Courier New, monospace" font-size="11" fill="#bbb">[empty]</text>
+          <text x="180" y="165" font-family="Courier New, monospace" font-size="11" fill="#bbb">N/A</text>
+          <text x="290" y="165" font-family="Courier New, monospace" font-size="11" fill="#bbb">???</text>
+          <text x="400" y="165" font-family="Courier New, monospace" font-size="11" fill="#bbb">-</text>
+          <text x="500" y="165" font-family="Courier New, monospace" font-size="11" fill="#bbb">-</text>
+          <text x="600" y="165" font-family="Courier New, monospace" font-size="11" fill="#bbb">-</text>
+          <text x="710" y="165" font-family="Courier New, monospace" font-size="11" fill="#bbb">-</text>
+          <text x="790" y="165" font-family="Courier New, monospace" font-size="11" fill="#e53935">MISSING</text>
+          <text x="880" y="165" font-family="Courier New, monospace" font-size="11" fill="#e53935">needs fix</text>
+          <line x1="0" y1="178" x2="960" y2="178" stroke="#c8c1b8" stroke-width="1"/>
+          <!-- row 4 -->
+          <rect x="0" y="178" width="960" height="36" fill="#fafaf8"/>
+          <text x="8"   y="201" font-family="Courier New, monospace" font-size="11" fill="#333">04</text>
+          <text x="48"  y="201" font-family="Courier New, monospace" font-size="11" fill="#333">Marcus T.</text>
+          <text x="180" y="201" font-family="Courier New, monospace" font-size="11" fill="#333">MIDWEST</text>
+          <text x="290" y="201" font-family="Courier New, monospace" font-size="11" fill="#333">$9,800</text>
+          <text x="400" y="201" font-family="Courier New, monospace" font-size="11" fill="#333">11200</text>
+          <text x="500" y="201" font-family="Courier New, monospace" font-size="11" fill="#333">$10,400</text>
+          <text x="600" y="201" font-family="Courier New, monospace" font-size="11" fill="#333">12900</text>
+          <text x="710" y="201" font-family="Courier New, monospace" font-size="11" fill="#333">44300</text>
+          <text x="790" y="201" font-family="Courier New, monospace" font-size="11" fill="#333">active</text>
+          <text x="880" y="201" font-family="Courier New, monospace" font-size="11" fill="#777">low performer</text>
+          <line x1="0" y1="214" x2="960" y2="214" stroke="#c8c1b8" stroke-width="1"/>
+          <!-- row 5 duplicate highlight -->
+          <rect x="0" y="214" width="960" height="36" fill="#fce4ec"/>
+          <text x="8"   y="237" font-family="Courier New, monospace" font-size="11" fill="#333">2</text>
+          <text x="48"  y="237" font-family="Courier New, monospace" font-size="11" fill="#333">SARAH CHEN</text>
+          <text x="180" y="237" font-family="Courier New, monospace" font-size="11" fill="#333">east</text>
+          <text x="290" y="237" font-family="Courier New, monospace" font-size="11" fill="#333">22100</text>
+          <text x="400" y="237" font-family="Courier New, monospace" font-size="11" fill="#333">$19,500</text>
+          <text x="500" y="237" font-family="Courier New, monospace" font-size="11" fill="#333">21000</text>
+          <text x="600" y="237" font-family="Courier New, monospace" font-size="11" fill="#333">$24,200</text>
+          <text x="710" y="237" font-family="Courier New, monospace" font-size="11" fill="#333">86800</text>
+          <text x="790" y="237" font-family="Courier New, monospace" font-size="11" fill="#e53935">DUPLICATE?</text>
+          <text x="880" y="237" font-family="Courier New, monospace" font-size="11" fill="#e53935">duplicate row</text>
+          <line x1="0" y1="250" x2="960" y2="250" stroke="#c8c1b8" stroke-width="1"/>
+          <!-- row 6 -->
+          <rect x="0" y="250" width="960" height="36" fill="#fafaf8"/>
+          <text x="8"   y="273" font-family="Courier New, monospace" font-size="11" fill="#333">005</text>
+          <text x="48"  y="273" font-family="Courier New, monospace" font-size="11" fill="#333">Rivera, Ana</text>
+          <text x="180" y="273" font-family="Courier New, monospace" font-size="11" fill="#333">South</text>
+          <text x="290" y="273" font-family="Courier New, monospace" font-size="11" fill="#333">18600</text>
+          <text x="400" y="273" font-family="Courier New, monospace" font-size="11" fill="#333">$20,100</text>
+          <text x="500" y="273" font-family="Courier New, monospace" font-size="11" fill="#333">17900</text>
+          <text x="600" y="273" font-family="Courier New, monospace" font-size="11" fill="#333">$22,400</text>
+          <text x="710" y="273" font-family="Courier New, monospace" font-size="11" fill="#333">79000</text>
+          <text x="790" y="273" font-family="Courier New, monospace" font-size="11" fill="#333">Active</text>
+          <text x="880" y="273" font-family="Courier New, monospace" font-size="11" fill="#777">-</text>
+          <line x1="0" y1="286" x2="960" y2="286" stroke="#c8c1b8" stroke-width="1"/>
+          <!-- row 7 wrong format -->
+          <rect x="0" y="286" width="960" height="36" fill="#fffde7"/>
+          <text x="8"   y="309" font-family="Courier New, monospace" font-size="11" fill="#333">6</text>
+          <text x="48"  y="309" font-family="Courier New, monospace" font-size="11" fill="#333">D. Patel</text>
+          <text x="180" y="309" font-family="Courier New, monospace" font-size="11" fill="#333">NW</text>
+          <text x="290" y="309" font-family="Courier New, monospace" font-size="11" fill="#e53935">fourteen thousand</text>
+          <text x="400" y="309" font-family="Courier New, monospace" font-size="11" fill="#333">16400</text>
+          <text x="500" y="309" font-family="Courier New, monospace" font-size="11" fill="#333">$15,100</text>
+          <text x="600" y="309" font-family="Courier New, monospace" font-size="11" fill="#333">17800</text>
+          <text x="710" y="309" font-family="Courier New, monospace" font-size="11" fill="#e53935">#VALUE!</text>
+          <text x="790" y="309" font-family="Courier New, monospace" font-size="11" fill="#333">inactive</text>
+          <text x="880" y="309" font-family="Courier New, monospace" font-size="11" fill="#777">fix number format</text>
+          <line x1="0" y1="322" x2="960" y2="322" stroke="#c8c1b8" stroke-width="1"/>
+          <!-- row 8 -->
+          <rect x="0" y="322" width="960" height="36" fill="#fafaf8"/>
+          <text x="8"   y="345" font-family="Courier New, monospace" font-size="11" fill="#333">007</text>
+          <text x="48"  y="345" font-family="Courier New, monospace" font-size="11" fill="#333">Kim, Jessica</text>
+          <text x="180" y="345" font-family="Courier New, monospace" font-size="11" fill="#333">East</text>
+          <text x="290" y="345" font-family="Courier New, monospace" font-size="11" fill="#333">25400</text>
+          <text x="400" y="345" font-family="Courier New, monospace" font-size="11" fill="#333">$27,200</text>
+          <text x="500" y="345" font-family="Courier New, monospace" font-size="11" fill="#333">24100</text>
+          <text x="600" y="345" font-family="Courier New, monospace" font-size="11" fill="#333">$29,800</text>
+          <text x="710" y="345" font-family="Courier New, monospace" font-size="11" fill="#333">106500</text>
+          <text x="790" y="345" font-family="Courier New, monospace" font-size="11" fill="#333">Active</text>
+          <text x="880" y="345" font-family="Courier New, monospace" font-size="11" fill="#777">top seller</text>
+          <line x1="0" y1="358" x2="960" y2="358" stroke="#c8c1b8" stroke-width="1"/>
+          <!-- row 9 -->
+          <rect x="0" y="358" width="960" height="36" fill="#fafaf8"/>
+          <text x="8"   y="381" font-family="Courier New, monospace" font-size="11" fill="#333">008</text>
+          <text x="48"  y="381" font-family="Courier New, monospace" font-size="11" fill="#333">Thompson, B</text>
+          <text x="180" y="381" font-family="Courier New, monospace" font-size="11" fill="#333">west</text>
+          <text x="290" y="381" font-family="Courier New, monospace" font-size="11" fill="#333">$11,700</text>
+          <text x="400" y="381" font-family="Courier New, monospace" font-size="11" fill="#333">13400</text>
+          <text x="500" y="381" font-family="Courier New, monospace" font-size="11" fill="#333">12200</text>
+          <text x="600" y="381" font-family="Courier New, monospace" font-size="11" fill="#333">$14,600</text>
+          <text x="710" y="381" font-family="Courier New, monospace" font-size="11" fill="#333">51900</text>
+          <text x="790" y="381" font-family="Courier New, monospace" font-size="11" fill="#333">active</text>
+          <text x="880" y="381" font-family="Courier New, monospace" font-size="11" fill="#777">-</text>
+          <line x1="0" y1="394" x2="960" y2="394" stroke="#c8c1b8" stroke-width="1"/>
+          <!-- row 10 -->
+          <rect x="0" y="394" width="960" height="36" fill="#fafaf8"/>
+          <text x="8"   y="417" font-family="Courier New, monospace" font-size="11" fill="#333">09</text>
+          <text x="48"  y="417" font-family="Courier New, monospace" font-size="11" fill="#333">Nguyen, T.</text>
+          <text x="180" y="417" font-family="Courier New, monospace" font-size="11" fill="#333">SOUTH</text>
+          <text x="290" y="417" font-family="Courier New, monospace" font-size="11" fill="#333">16200</text>
+          <text x="400" y="417" font-family="Courier New, monospace" font-size="11" fill="#333">$17,900</text>
+          <text x="500" y="417" font-family="Courier New, monospace" font-size="11" fill="#333">15600</text>
+          <text x="600" y="417" font-family="Courier New, monospace" font-size="11" fill="#333">$19,100</text>
+          <text x="710" y="417" font-family="Courier New, monospace" font-size="11" fill="#333">68800</text>
+          <text x="790" y="417" font-family="Courier New, monospace" font-size="11" fill="#333">Active</text>
+          <text x="880" y="417" font-family="Courier New, monospace" font-size="11" fill="#777">-</text>
+          <line x1="0" y1="430" x2="960" y2="430" stroke="#c8c1b8" stroke-width="1"/>
+          <!-- row 11 -->
+          <rect x="0" y="430" width="960" height="36" fill="#fafaf8"/>
+          <text x="8"   y="453" font-family="Courier New, monospace" font-size="11" fill="#333">010</text>
+          <text x="48"  y="453" font-family="Courier New, monospace" font-size="11" fill="#333">lee sam</text>
+          <text x="180" y="453" font-family="Courier New, monospace" font-size="11" fill="#333">Midwest</text>
+          <text x="290" y="453" font-family="Courier New, monospace" font-size="11" fill="#333">13100</text>
+          <text x="400" y="453" font-family="Courier New, monospace" font-size="11" fill="#333">14800</text>
+          <text x="500" y="453" font-family="Courier New, monospace" font-size="11" fill="#333">$12,600</text>
+          <text x="600" y="453" font-family="Courier New, monospace" font-size="11" fill="#333">$15,300</text>
+          <text x="710" y="453" font-family="Courier New, monospace" font-size="11" fill="#333">55800</text>
+          <text x="790" y="453" font-family="Courier New, monospace" font-size="11" fill="#333">active</text>
+          <text x="880" y="453" font-family="Courier New, monospace" font-size="11" fill="#777">-</text>
+          <line x1="0" y1="466" x2="960" y2="466" stroke="#c8c1b8" stroke-width="1"/>
+          <!-- totals row -->
+          <rect x="0" y="466" width="960" height="36" fill="#d4cfc9"/>
+          <text x="48"  y="489" font-family="Courier New, monospace" font-size="11" fill="#333" font-weight="bold">TOTALS</text>
+          <text x="710" y="489" font-family="Courier New, monospace" font-size="11" fill="#e53935" font-weight="bold">???</text>
+          <text x="880" y="489" font-family="Courier New, monospace" font-size="11" fill="#777">need to recount</text>
+          <!-- row 12 overflows out of bounds -->
+          <text x="8" y="512" font-family="Courier New, monospace" font-size="10" fill="#bbb">scroll down for more rows...</text>
         </svg>
-      </a>
-      <a href="https://www.fiverr.com/kevingil23" target="_blank" class="me-transparent-btn fiverr">
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 30 30">
-          <path d="M25.111 12.8v-.923h-1.752l-.77-.013c-.658 0-1.108.433-1.285.937v-.923h-1.962v5.988h1.962v-1.284-1.988c0-.597.484-1.081 1.081-1.081h.765v4.352h1.962v-1.284-1.988c0-.597.484-1.081 1.081-1.081h.974v-1.636l-.77-.013C25.738 11.863 25.288 12.297 25.111 12.8zM11.152 12.002L10.099 15.463 9.047 12.002 7.085 12.002 9.216 17.99 9.331 17.99 10.868 17.99 10.983 17.99 13.113 12.002zM3.136 12.002v-.399c0-.35.283-.633.633-.633h1.238V9.328H3.307c-1.177 0-2.132.954-2.132 2.132v.543H.028v1.587h1.147v4.4h1.962v-4.4h1.871v4.4H6.97v-4.4-1.587H5.008 3.136zM15.833 11.921h-.239c-1.607 0-2.91 1.303-2.91 2.91v.329c0 1.607 1.303 2.91 2.91 2.91h.531c1.1 0 2.042-.679 2.429-1.641l-1.73-.505c0 0-.207.593-.929.593-.815 0-1.246-.446-1.303-.952h0v-.003c-.004-.037-.006-.074-.006-.111h2.213 1.946v-.619C18.743 13.224 17.44 11.921 15.833 11.921zM14.587 14.296c.024-.538.467-.968 1.011-.968h.187c.544 0 .987.429 1.011.968H14.587zM28.754 15.689c-.674 0-1.22.546-1.22 1.22 0 .674.546 1.22 1.22 1.22.674 0 1.22-.546 1.22-1.22C29.974 16.235 29.428 15.689 28.754 15.689z"></path>
-        </svg>
-      </a>
+
+        <!-- AFTER: clean styled dashboard table rendered as SVG -->
+        <div class="comparison__after-wrap" id="afterWrap">
+          <svg class="comparison__img comparison__img--after" viewBox="0 0 960 520" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:auto;">
+            <rect width="960" height="520" fill="#F4F7FA"/>
+            <!-- top bar -->
+            <rect x="0" y="0" width="960" height="56" fill="#ffffff"/>
+            <rect x="0" y="55" width="960" height="1" fill="#E8EEF4"/>
+            <text x="24" y="34" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="700" fill="#0D1B2A">Sales Performance</text>
+            <text x="24" y="50" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#8A9BB0">FY 2024 — 10 Representatives</text>
+            <!-- summary KPI pills -->
+            <rect x="620" y="13" width="100" height="30" rx="8" fill="#EBF5FF"/>
+            <text x="670" y="32" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600" fill="#0070C9" text-anchor="middle">↑ 12% YoY</text>
+            <rect x="730" y="13" width="110" height="30" rx="8" fill="#E8F5E9"/>
+            <text x="785" y="32" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600" fill="#2E7D32" text-anchor="middle">9 Active</text>
+            <rect x="850" y="13" width="90" height="30" rx="8" fill="#FFF3E0"/>
+            <text x="895" y="32" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600" fill="#E65100" text-anchor="middle">1 Inactive</text>
+            <!-- table header -->
+            <rect x="16" y="68" width="928" height="34" rx="8" fill="#00213D"/>
+            <text x="36"  y="90" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.6)">#</text>
+            <text x="72"  y="90" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.6)">REPRESENTATIVE</text>
+            <text x="250" y="90" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.6)">REGION</text>
+            <text x="350" y="90" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.6)">Q1</text>
+            <text x="440" y="90" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.6)">Q2</text>
+            <text x="530" y="90" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.6)">Q3</text>
+            <text x="620" y="90" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.6)">Q4</text>
+            <text x="710" y="90" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.6)">TOTAL</text>
+            <text x="820" y="90" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.6)">STATUS</text>
+            <!-- data rows -->
+            <!-- row 1 -->
+            <rect x="16" y="104" width="928" height="36" rx="6" fill="#ffffff"/>
+            <text x="36"  y="127" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#8A9BB0">001</text>
+            <text x="72"  y="127" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="600" fill="#0D1B2A">Johnson, Mike</text>
+            <rect x="248" y="113" width="60" height="18" rx="9" fill="#EBF5FF"/>
+            <text x="278" y="126" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600" fill="#0070C9" text-anchor="middle">West</text>
+            <text x="350" y="127" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$12,400</text>
+            <text x="440" y="127" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$15,200</text>
+            <text x="530" y="127" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$14,800</text>
+            <text x="620" y="127" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$16,100</text>
+            <text x="710" y="127" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700" fill="#0D1B2A">$58,500</text>
+            <rect x="816" y="113" width="62" height="18" rx="9" fill="#E8F5E9"/>
+            <text x="847" y="126" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600" fill="#2E7D32" text-anchor="middle">Active</text>
+            <!-- bar sparkline -->
+            <rect x="890" y="118" width="40" height="6" rx="3" fill="#E8EEF4"/>
+            <rect x="890" y="118" width="22" height="6" rx="3" fill="#0070C9"/>
+            <!-- row 2 -->
+            <rect x="16" y="144" width="928" height="36" rx="6" fill="#F9FBFD"/>
+            <text x="36"  y="167" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#8A9BB0">002</text>
+            <text x="72"  y="167" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="600" fill="#0D1B2A">Chen, Sarah</text>
+            <rect x="248" y="153" width="60" height="18" rx="9" fill="#FFF3E0"/>
+            <text x="278" y="166" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600" fill="#E65100" text-anchor="middle">East</text>
+            <text x="350" y="167" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$22,100</text>
+            <text x="440" y="167" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$19,500</text>
+            <text x="530" y="167" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$21,000</text>
+            <text x="620" y="167" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$24,200</text>
+            <text x="710" y="167" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700" fill="#0D1B2A">$86,800</text>
+            <rect x="816" y="153" width="62" height="18" rx="9" fill="#E8F5E9"/>
+            <text x="847" y="166" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600" fill="#2E7D32" text-anchor="middle">Active</text>
+            <rect x="890" y="158" width="40" height="6" rx="3" fill="#E8EEF4"/>
+            <rect x="890" y="158" width="33" height="6" rx="3" fill="#0070C9"/>
+            <!-- row 3 -->
+            <rect x="16" y="184" width="928" height="36" rx="6" fill="#ffffff"/>
+            <text x="36"  y="207" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#8A9BB0">003</text>
+            <text x="72"  y="207" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="600" fill="#0D1B2A">Torres, Marcus</text>
+            <rect x="248" y="193" width="68" height="18" rx="9" fill="#F3E5F5"/>
+            <text x="282" y="206" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600" fill="#6A1B9A" text-anchor="middle">Midwest</text>
+            <text x="350" y="207" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$9,800</text>
+            <text x="440" y="207" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$11,200</text>
+            <text x="530" y="207" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$10,400</text>
+            <text x="620" y="207" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$12,900</text>
+            <text x="710" y="207" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700" fill="#0D1B2A">$44,300</text>
+            <rect x="816" y="193" width="62" height="18" rx="9" fill="#E8F5E9"/>
+            <text x="847" y="206" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600" fill="#2E7D32" text-anchor="middle">Active</text>
+            <rect x="890" y="198" width="40" height="6" rx="3" fill="#E8EEF4"/>
+            <rect x="890" y="198" width="17" height="6" rx="3" fill="#0070C9"/>
+            <!-- row 4 -->
+            <rect x="16" y="224" width="928" height="36" rx="6" fill="#F9FBFD"/>
+            <text x="36"  y="247" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#8A9BB0">004</text>
+            <text x="72"  y="247" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="600" fill="#0D1B2A">Rivera, Ana</text>
+            <rect x="248" y="233" width="60" height="18" rx="9" fill="#E8F5E9"/>
+            <text x="278" y="246" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600" fill="#2E7D32" text-anchor="middle">South</text>
+            <text x="350" y="247" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$18,600</text>
+            <text x="440" y="247" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$20,100</text>
+            <text x="530" y="247" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$17,900</text>
+            <text x="620" y="247" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$22,400</text>
+            <text x="710" y="247" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700" fill="#0D1B2A">$79,000</text>
+            <rect x="816" y="233" width="62" height="18" rx="9" fill="#E8F5E9"/>
+            <text x="847" y="246" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600" fill="#2E7D32" text-anchor="middle">Active</text>
+            <rect x="890" y="238" width="40" height="6" rx="3" fill="#E8EEF4"/>
+            <rect x="890" y="238" width="30" height="6" rx="3" fill="#0070C9"/>
+            <!-- row 5 top performer highlighted -->
+            <rect x="16" y="264" width="928" height="36" rx="6" fill="#EBF5FF"/>
+            <text x="36"  y="287" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#8A9BB0">005</text>
+            <text x="72"  y="287" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700" fill="#0070C9">Kim, Jessica ★</text>
+            <rect x="248" y="273" width="60" height="18" rx="9" fill="#FFF3E0"/>
+            <text x="278" y="286" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600" fill="#E65100" text-anchor="middle">East</text>
+            <text x="350" y="287" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#0070C9">$25,400</text>
+            <text x="440" y="287" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#0070C9">$27,200</text>
+            <text x="530" y="287" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#0070C9">$24,100</text>
+            <text x="620" y="287" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#0070C9">$29,800</text>
+            <text x="710" y="287" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="800" fill="#0070C9">$106,500</text>
+            <rect x="816" y="273" width="62" height="18" rx="9" fill="#E8F5E9"/>
+            <text x="847" y="286" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600" fill="#2E7D32" text-anchor="middle">Active</text>
+            <rect x="890" y="278" width="40" height="6" rx="3" fill="#E8EEF4"/>
+            <rect x="890" y="278" width="40" height="6" rx="3" fill="#0070C9"/>
+            <!-- row 6 -->
+            <rect x="16" y="304" width="928" height="36" rx="6" fill="#ffffff"/>
+            <text x="36"  y="327" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#8A9BB0">006</text>
+            <text x="72"  y="327" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="600" fill="#0D1B2A">Patel, Dev</text>
+            <rect x="248" y="313" width="72" height="18" rx="9" fill="#F3E5F5"/>
+            <text x="284" y="326" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600" fill="#6A1B9A" text-anchor="middle">Northwest</text>
+            <text x="350" y="327" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$14,000</text>
+            <text x="440" y="327" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$16,400</text>
+            <text x="530" y="327" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$15,100</text>
+            <text x="620" y="327" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$17,800</text>
+            <text x="710" y="327" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700" fill="#0D1B2A">$63,300</text>
+            <rect x="816" y="313" width="70" height="18" rx="9" fill="#FAFAFA" stroke="#E8EEF4" stroke-width="1"/>
+            <text x="851" y="326" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600" fill="#8A9BB0" text-anchor="middle">Inactive</text>
+            <rect x="890" y="318" width="40" height="6" rx="3" fill="#E8EEF4"/>
+            <rect x="890" y="318" width="24" height="6" rx="3" fill="#8A9BB0"/>
+            <!-- row 7 -->
+            <rect x="16" y="344" width="928" height="36" rx="6" fill="#F9FBFD"/>
+            <text x="36"  y="367" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#8A9BB0">007</text>
+            <text x="72"  y="367" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="600" fill="#0D1B2A">Thompson, Ben</text>
+            <rect x="248" y="353" width="60" height="18" rx="9" fill="#EBF5FF"/>
+            <text x="278" y="366" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600" fill="#0070C9" text-anchor="middle">West</text>
+            <text x="350" y="367" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$11,700</text>
+            <text x="440" y="367" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$13,400</text>
+            <text x="530" y="367" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$12,200</text>
+            <text x="620" y="367" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$14,600</text>
+            <text x="710" y="367" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700" fill="#0D1B2A">$51,900</text>
+            <rect x="816" y="353" width="62" height="18" rx="9" fill="#E8F5E9"/>
+            <text x="847" y="366" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600" fill="#2E7D32" text-anchor="middle">Active</text>
+            <rect x="890" y="358" width="40" height="6" rx="3" fill="#E8EEF4"/>
+            <rect x="890" y="358" width="20" height="6" rx="3" fill="#0070C9"/>
+            <!-- row 8 -->
+            <rect x="16" y="384" width="928" height="36" rx="6" fill="#ffffff"/>
+            <text x="36"  y="407" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#8A9BB0">008</text>
+            <text x="72"  y="407" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="600" fill="#0D1B2A">Nguyen, Tran</text>
+            <rect x="248" y="393" width="60" height="18" rx="9" fill="#E8F5E9"/>
+            <text x="278" y="406" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600" fill="#2E7D32" text-anchor="middle">South</text>
+            <text x="350" y="407" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$16,200</text>
+            <text x="440" y="407" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$17,900</text>
+            <text x="530" y="407" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$15,600</text>
+            <text x="620" y="407" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#2E4057">$19,100</text>
+            <text x="710" y="407" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700" fill="#0D1B2A">$68,800</text>
+            <rect x="816" y="393" width="62" height="18" rx="9" fill="#E8F5E9"/>
+            <text x="847" y="406" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="600" fill="#2E7D32" text-anchor="middle">Active</text>
+            <rect x="890" y="398" width="40" height="6" rx="3" fill="#E8EEF4"/>
+            <rect x="890" y="398" width="26" height="6" rx="3" fill="#0070C9"/>
+            <!-- totals row -->
+            <rect x="16" y="432" width="928" height="40" rx="6" fill="#00213D"/>
+            <text x="72"  y="457" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700" fill="rgba(255,255,255,0.7)">Total (8 reps)</text>
+            <text x="710" y="457" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="800" fill="#4FACF7">$558,100</text>
+            <text x="820" y="457" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="rgba(255,255,255,0.5)">9 Active · 1 Inactive</text>
+            <!-- footer note -->
+            <text x="24" y="510" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#8A9BB0">Last updated: Auto-refreshed · Duplicates removed · Formats standardized</text>
+          </svg>
+        </div>
+
+        <div class="comparison__divider" id="divider">
+          <div class="comparison__handle">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 3L3 8l5 5M16 3l5 5-5 5"/>
+            </svg>
+          </div>
+        </div>
+        <div class="comparison__label comparison__label--before">BEFORE</div>
+        <div class="comparison__label comparison__label--after">AFTER</div>
+      </div>
     </div>
-    <br><br>
-  </div>
-  <!-- End Contact -->
+  </section>
+
+  <!-- ── PROJECTS ───────────────────────────────────────────── -->
+  <section class="section section--dark" id="projects">
+    <div class="section__header reveal">
+      <div class="section__eyebrow">Work</div>
+      <h2 class="section__title section__title--light">Projects</h2>
+      <p class="section__subtitle section__subtitle--light">A selection of tools and automations I've built.</p>
+    </div>
+    <div class="projects__grid">
+
+      <div class="project-card reveal">
+        <div class="project-card__media">
+          <img src="static/images/Projects/python_script.gif" alt="Python Script Automation" onerror="this.parentElement.innerHTML='<div class=\'project-card__media-placeholder\'>🐍</div>'">
+        </div>
+        <div class="project-card__body">
+          <div class="project-card__tag">Automation</div>
+          <div class="project-card__title">Pull Data with a Python Script</div>
+          <div class="project-card__desc">
+            Automate data extraction and transformation using Python scripts — 
+            turning hours of manual work into a one-click process that runs reliably every time.
+          </div>
+          <div class="project-card__tools">
+            <span class="project-tool">Python</span>
+            <span class="project-tool">Pandas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-card__media">
+          <img src="static/images/Projects/email_automation.gif" alt="Email Automation" onerror="this.parentElement.innerHTML='<div class=\'project-card__media-placeholder\'>📧</div>'">
+        </div>
+        <div class="project-card__body">
+          <div class="project-card__tag">Automation</div>
+          <div class="project-card__title">Send Emails Directly from Excel</div>
+          <div class="project-card__desc">
+            We often have recurring emails we send daily or weekly. Make your life easier 
+            by sending them straight through Excel — customize target addresses, subjects, 
+            bodies, and attachments, then run it all in one go.
+          </div>
+          <div class="project-card__tools">
+            <span class="project-tool">Excel</span>
+            <span class="project-tool">Outlook</span>
+            <span class="project-tool">VBA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-card__media">
+          <img src="static/images/Projects/database_model.gif" alt="Database Model" onerror="this.parentElement.innerHTML='<div class=\'project-card__media-placeholder\'>🗄️</div>'">
+        </div>
+        <div class="project-card__body">
+          <div class="project-card__tag">Data Engineering</div>
+          <div class="project-card__title">Export Data to Access (or Vice Versa)</div>
+          <div class="project-card__desc">
+            Excel maxes out at ~1M rows. Seamlessly export your data to an Access database 
+            for safer, more reliable storage — and Power Query it right back without the 
+            sluggish Excel overhead.
+          </div>
+          <div class="project-card__tools">
+            <span class="project-tool">Excel</span>
+            <span class="project-tool">Access</span>
+            <span class="project-tool">VBA</span>
+            <span class="project-tool">PowerQuery M</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    .comparison {
+      max-width: 960px;
+    }
+    .comparison__container {
+      position: relative;
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-hover);
+      cursor: col-resize;
+      user-select: none;
+      background: var(--light-gray);
+      /* height set by JS once image loads */
+    }
+    .comparison__img {
+      display: block;
+      width: 100%;
+      height: auto;
+      pointer-events: none;
+    }
+    .comparison__img--before {
+      display: block;
+    }
+    .comparison__after-wrap {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 50%;
+      overflow: hidden;
+    }
+    .comparison__img--after {
+      width: var(--img-width, 100%);
+      max-width: none;
+      height: 100%;
+      object-fit: cover;
+      object-position: left top;
+    }
+    .comparison__divider {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 3px;
+      background: var(--white);
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .comparison__handle {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      flex-shrink: 0;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .comparison__container:hover .comparison__handle {
+      box-shadow: 0 4px 20px rgba(0,112,201,0.35);
+      transform: scale(1.08);
+    }
+    .comparison__label {
+      position: absolute;
+      top: 1.1rem;
+      padding: 0.3rem 0.85rem;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+    .comparison__label--before {
+      right: 1.1rem;
+      background: rgba(0,33,61,0.65);
+      color: rgba(255,255,255,0.85);
+      backdrop-filter: blur(6px);
+    }
+    .comparison__label--after {
+      left: 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+    }
+  </style>
+
+  <script>
+    (function() {
+      const container = document.getElementById('comparisonContainer');
+      const afterWrap  = document.getElementById('afterWrap');
+      const divider    = document.getElementById('divider');
+      if (!container) return;
+
+      function setPercent(pct) {
+        pct = Math.max(2, Math.min(98, pct));
+        afterWrap.style.width = pct + '%';
+        divider.style.left    = pct + '%';
+        // keep after image full-width inside clipped wrapper
+        const imgW = container.offsetWidth;
+        afterWrap.querySelector('img').style.width = imgW + 'px';
+      }
+
+      function getPercent(e) {
+        const rect = container.getBoundingClientRect();
+        const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+        return (x / rect.width) * 100;
+      }
+
+      let dragging = false;
+      container.addEventListener('mousedown',  () => { dragging = true; });
+      window.addEventListener('mouseup',       () => { dragging = false; });
+      window.addEventListener('mousemove',     e  => { if (dragging) setPercent(getPercent(e)); });
+      container.addEventListener('touchstart', e  => { dragging = true; }, { passive: true });
+      window.addEventListener('touchend',      () => { dragging = false; });
+      window.addEventListener('touchmove',     e  => { if (dragging) setPercent(getPercent(e)); }, { passive: true });
+
+      // Init after image loads
+      const beforeImg = container.querySelector('.comparison__img--before');
+      function init() {
+        afterWrap.querySelector('img').style.width = container.offsetWidth + 'px';
+        setPercent(50);
+      }
+      if (beforeImg.complete) init();
+      else beforeImg.addEventListener('load', init);
+      window.addEventListener('resize', init);
+    })();
+  </script>
+
+
+  <section class="section section--dark" id="contact">
+    <div class="contact__inner reveal">
+      <div class="section__eyebrow section__eyebrow--light">Let's Talk</div>
+      <h2 class="section__title section__title--light">Get in Touch</h2>
+      <p class="section__subtitle section__subtitle--light" style="margin: 1rem auto 0; text-align:center;">
+        Have a project, a question, or just want to connect? My inbox is always open.
+      </p>
+      <a href="mailto:kevin@madebykev.com" class="contact__email">kevin@madebykev.com</a>
+
+      <div class="social-links">
+
+        <a href="https://github.com/kevogil" target="_blank" class="social-link">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          GitHub
+        </a>
+
+        <a href="https://linkedin.com/in/kevingil23" target="_blank" class="social-link">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+
+        <a href="https://www.upwork.com/freelancers/~01429414db0d243878" target="_blank" class="social-link">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.545-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg>
+          Upwork
+        </a>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__name">Kevin Gil</div>
+    <div class="footer__copy">© 2025 — Built with care.</div>
+  </footer>
+
+  <!-- ── SCRIPTS ────────────────────────────────────────────── -->
+  <script>
+    // ── Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ── Typewriter effect
+    const phrases = ['  data geek.', 'n automation nerd.', ' financial analyst.'];
+    let phraseIdx = 0, charIdx = 0, deleting = false;
+    const el = document.getElementById('typewriter');
+    function type() {
+      const current = phrases[phraseIdx];
+      if (!deleting) {
+        el.textContent = current.slice(0, ++charIdx);
+        if (charIdx === current.length) {
+          setTimeout(() => { deleting = true; type(); }, 2000);
+          return;
+        }
+      } else {
+        el.textContent = current.slice(0, --charIdx);
+        if (charIdx === 0) {
+          deleting = false;
+          phraseIdx = (phraseIdx + 1) % phrases.length;
+        }
+      }
+      setTimeout(type, deleting ? 55 : 90);
+    }
+    setTimeout(type, 1200);
+
+    // ── Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          // Stagger siblings
+          const siblings = [...entry.target.parentElement.querySelectorAll('.reveal')];
+          const idx = siblings.indexOf(entry.target);
+          entry.target.style.transitionDelay = `${idx * 80}ms`;
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
 
 </body>
-
-<script src="./static/js/main.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<script>
-  AOS.init({
-    duration: 1000,
-    offset: 120,
-    easing: 'ease-in-out'
-  });
-</script>
-
 </html>
