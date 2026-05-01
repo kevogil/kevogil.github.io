@@ -613,21 +613,22 @@
       .edu__timeline { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
-      /* Mobile: stacked layout — text top, photo bottom */
-      .hero__bg-photo { display: none; }
+      /* Mobile: text top, photo below — stacked flex column */
       .hero {
         background: #F7F5F2;
         min-height: 100svh;
         flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        padding: calc(var(--nav-height) + 2rem) 6% 0;
+        justify-content: flex-start;
+        align-items: stretch;
+        padding: calc(var(--nav-height) + 2rem) 0 0;
         gap: 0;
       }
       .hero__inner {
         max-width: 100%;
-        padding-bottom: 1.5rem;
+        padding: 0 6% 1.5rem;
         flex-shrink: 0;
+        position: relative;
+        z-index: 2;
       }
       .hero__headline {
         font-size: clamp(2.2rem, 9vw, 3.2rem);
@@ -635,15 +636,20 @@
       .hero__typewriter-line {
         font-size: clamp(1.1rem, 5vw, 1.8rem);
       }
-      .hero__mobile-photo {
+      /* Pull photo out of absolute positioning so it flows below text */
+      .hero__bg-photo {
+        position: relative !important;
+        inset: auto !important;
         display: block;
         width: 100%;
-        max-height: 52vh;
+        height: auto;
+        max-height: 55vh;
         object-fit: cover;
-        object-position: center 15%;
+        object-position: center 20%;
         flex-shrink: 0;
-        align-self: center;
+        z-index: 1;
       }
+      .hero__mobile-photo { display: none; }
     }
     @media (max-width: 600px) {
       :root { --section-pad: 55px; }
