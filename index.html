@@ -135,6 +135,7 @@
       object-position: center center;
       z-index: 0;
     }
+    .hero__mobile-photo { display: none; } /* shown only on mobile via media query */
     .hero::before { display: none; }
     .hero::after  { display: none; }
     .hero__inner {
@@ -612,22 +613,36 @@
       .edu__timeline { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
-      /* Hide photo on mobile — text-only hero on plain background */
+      /* Mobile: stacked layout — text top, photo bottom */
       .hero__bg-photo { display: none; }
       .hero {
         background: #F7F5F2;
-        min-height: 80vh;
-        align-items: center;
+        min-height: 100svh;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: calc(var(--nav-height) + 2rem) 6% 0;
+        gap: 0;
       }
       .hero__inner {
         max-width: 100%;
-        padding-bottom: 3rem;
+        padding-bottom: 1.5rem;
+        flex-shrink: 0;
       }
       .hero__headline {
-        font-size: clamp(2.2rem, 8vw, 3.5rem);
+        font-size: clamp(2.2rem, 9vw, 3.2rem);
       }
       .hero__typewriter-line {
-        font-size: clamp(1.2rem, 5vw, 2rem);
+        font-size: clamp(1.1rem, 5vw, 1.8rem);
+      }
+      .hero__mobile-photo {
+        display: block;
+        width: 100%;
+        max-height: 52vh;
+        object-fit: cover;
+        object-position: center 15%;
+        flex-shrink: 0;
+        align-self: center;
       }
     }
     @media (max-width: 600px) {
