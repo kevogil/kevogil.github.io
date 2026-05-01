@@ -611,6 +611,25 @@
       .nav__links { display: none; }
       .edu__timeline { grid-template-columns: 1fr; }
     }
+    @media (max-width: 768px) {
+      /* Hide photo on mobile — text-only hero on plain background */
+      .hero__bg-photo { display: none; }
+      .hero {
+        background: #F7F5F2;
+        min-height: 80vh;
+        align-items: center;
+      }
+      .hero__inner {
+        max-width: 100%;
+        padding-bottom: 3rem;
+      }
+      .hero__headline {
+        font-size: clamp(2.2rem, 8vw, 3.5rem);
+      }
+      .hero__typewriter-line {
+        font-size: clamp(1.2rem, 5vw, 2rem);
+      }
+    }
     @media (max-width: 600px) {
       :root { --section-pad: 55px; }
     }
